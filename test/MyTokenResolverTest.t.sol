@@ -2,7 +2,7 @@
 pragma solidity ^0.8.17;
 
 import "forge-std/Test.sol";
-import "src/MyTokenResolver.sol";
+import "src/IPFSTokenResolverRegistry.sol";
 
 contract MyTokenResolverTest is Test {
 
