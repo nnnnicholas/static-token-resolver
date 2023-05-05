@@ -1,4 +1,4 @@
-# juice-svg-template
+# juice-token-resolver-template
 Template for creating [custom Token URI resolvers](https://github.com/jbx-protocol/juice-token-resolver/) for Juicebox projects. 
 
 If you want to create your own custom Token Resolver for a Juicebox project, you're in the right place. This repo gives you a contract with the basics you'll need to deploy an IJBTokenUriResolverbare contract. Follow the *Usage* instructions below to deploy and configure your Juicebox project to use your custom Token Resolver.
