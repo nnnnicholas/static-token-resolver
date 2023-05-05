@@ -3,7 +3,7 @@ pragma solidity ^0.8.17;
 
 import {IJBTokenUriResolver} from "@jbx-protocol/juice-contracts-v3/contracts/interfaces/IJBTokenUriResolver.sol";
 
-contract MyTokenResolver {
+contract MyTokenResolver is IJBTokenUriResolver {
 
     string public uri;
 
