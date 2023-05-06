@@ -8,3 +8,6 @@
 [submodule "lib/typeface"]
 	path = lib/typeface
 	url = https://github.com/peripheralist/typeface
+[submodule "lib/juice-token-resolver"]
+	path = lib/juice-token-resolver
+	url = https://github.com/jbx-protocol/juice-token-resolver
