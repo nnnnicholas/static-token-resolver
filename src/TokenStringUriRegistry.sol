@@ -5,20 +5,23 @@ import {IJBTokenUriResolver} from "@jbx-protocol/juice-contracts-v3/contracts/in
 import {JBOperatable, IJBOperatorStore} from "@jbx-protocol/juice-contracts-v3/contracts/abstract/JBOperatable.sol";
 import {IJBProjects} from "@jbx-protocol/juice-contracts-v3/contracts/interfaces/IJBProjects.sol";
 
-
 contract TokenStringUriRegistry is IJBTokenUriResolver, JBOperatable {
-
     /**
      * @notice Emitted when the IPFS for a project is set.
      */
-    event ProjectTokenUriResolverSet(uint256 indexed projectId, string indexed ipfs);
-
+    event ProjectTokenUriResolverSet(
+        uint256 indexed projectId,
+        string indexed ipfs
+    );
 
     IJBProjects public immutable projects;
     uint public constant SET_TOKEN_URI = 20;
-    string[] public uri;
+    mapping(uint => string) public uri;
 
-    constructor(IJBProjects _projects, IJBOperatorStore _operatorStore) JBOperatable(_operatorStore) {
+    constructor(
+        IJBProjects _projects,
+        IJBOperatorStore _operatorStore
+    ) JBOperatable(_operatorStore) {
         projects = _projects;
     }
 
