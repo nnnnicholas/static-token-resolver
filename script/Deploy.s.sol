@@ -2,7 +2,7 @@
 pragma solidity ^0.8.17;
 
 import "forge-std/Script.sol";
-import "src/IPFSTokenResolverRegistry.sol";
+import "src/TokenStringUriRegistry.sol";
 
 contract CounterScript is Script {
     IJBProjects public projects =
@@ -15,7 +15,7 @@ contract CounterScript is Script {
     function run() public {
         uint256 deployerPrivateKey = vm.envUint("MAINNET_PRIVATE_KEY");
         vm.startBroadcast(deployerPrivateKey);
-        IPFSTokenResolverRegistry tokenResolver = new IPFSTokenResolverRegistry(
+        TokenStringUriRegistry tokenResolver = new TokenStringUriRegistry(
             projects,
             operatorStore
         );

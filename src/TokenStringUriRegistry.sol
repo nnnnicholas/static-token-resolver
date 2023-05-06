@@ -6,7 +6,7 @@ import {JBOperatable, IJBOperatorStore} from "@jbx-protocol/juice-contracts-v3/c
 import {IJBProjects} from "@jbx-protocol/juice-contracts-v3/contracts/interfaces/IJBProjects.sol";
 
 
-contract IPFSTokenResolverRegistry is IJBTokenUriResolver, JBOperatable {
+contract TokenStringUriRegistry is IJBTokenUriResolver, JBOperatable {
 
     /**
      * @notice Emitted when the IPFS for a project is set.
