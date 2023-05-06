@@ -7,16 +7,20 @@ import {IJBProjects} from "@jbx-protocol/juice-contracts-v3/contracts/interfaces
 
 contract TokenStringUriRegistry is IJBTokenUriResolver, JBOperatable {
     /**
-     * @notice Emitted when the IPFS for a project is set.
+     * @notice Emitted when the uri for a project is set.
      */
     event ProjectTokenUriResolverSet(
         uint256 indexed projectId,
-        string indexed ipfs
+        string indexed uri
     );
 
     IJBProjects public immutable projects;
     uint public constant SET_TOKEN_URI = 20;
-    mapping(uint => string) public uri;
+
+    /**
+     * @notice The custom URIs corresponding to each project. Should return ERC721 tokenUri compliant JSON.
+     */
+    mapping(uint256 => string) public uri;
 
     constructor(
         IJBProjects _projects,
@@ -25,12 +29,30 @@ contract TokenStringUriRegistry is IJBTokenUriResolver, JBOperatable {
         projects = _projects;
     }
 
+    /// @notice Explain to an end user what this does
+    /// @dev Explain to a developer any extra details
+    /// @param Documents a parameter just like in doxygen (must be followed by parameter name)
+    /// @return Documents the return variables of a contract’s function state variable
+    /// @inheritdoc	Copies all missing tags from the base function (must be followed by the contract name)
+
+    /**
+     * @notice Get the URI for a given project
+     * @param _projectId The project to get the URI for
+     * @return tokenUri The URI for the given project
+     * @inheritdoc	IJBTokenUriResolver
+     */
     function getUri(
         uint256 _projectId
     ) external view returns (string memory tokenUri) {
         return uri[_projectId];
     }
 
+    /**
+     * @notice Set the URI for a given project
+     * @dev Only callable by the owner of the project
+     * @param _projectId The project to set the URI for
+     * @param _uri The URI to set
+     */
     function setUri(
         uint256 _projectId,
         string memory _uri
