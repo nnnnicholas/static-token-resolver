@@ -3,8 +3,7 @@ pragma solidity ^0.8.17;
 
 import "forge-std/Test.sol";
 import "src/TokenStringUriRegistry.sol";
-import {TokenUriResolver} from "juice-token-resolver/TokenUriResolver.sol";
-
+import {TokenUriResolver} from "juice-token-resolver/src/TokenUriResolver.sol";
 
 contract Uri is Test {
     // Setup
@@ -25,10 +24,15 @@ contract Uri is Test {
         new TokenStringUriRegistry(projects, operatorStore);
 
     function testIntegration() public {
-        TokenUriResolver t = new TokenUriResolver(
+        TokenUriResolver tokenResolver = new TokenUriResolver(
             projects,
             operatorStore,
-            address(0)
+            IJBTokenUriResolver(address(0))
         );
+        vm.startPrank(owner);
+        reg.setUri(1, "ipfs://xyz");
+        tokenResolver.setTokenUriResolverForProject(1, reg);
+        vm.stopPrank();
+        assertEq(tokenResolver.getUri(1), "ipfs://xyz");
     }
 }
