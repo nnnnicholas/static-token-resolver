@@ -3,6 +3,9 @@ Lets project creators set any string as the uri (e.g., IPFS or HTTPS) for their 
 
 This repo contains a Juicebox Custom Token Resolver registry. Juicebox project owners can set this contract (already deployed on mainnet) as the custom resolver for their project. They can then set the string they'd like to use as the URI for their project's token on this contract. This contract makes it as easy as sending these two small txs to set an IPFS or HTTPS URI for your project's metadata. Without this contract, project owners who want to set their project's NFT metadata to a string URI would have to deploy their own custom token resolver contract, which is more expensive and more work.
 
+## Deployed address
+Mainnet: [0xbd6cf252598bbfd87a429ded71adf9f8d2bb9558](https://etherscan.io/address/0xbd6cf252598bbfd87a429ded71adf9f8d2bb9558)
+
 ## Before you start
 1. Install [Foundry](https://book.getfoundry.sh/getting-started/installation).
 2. Install [Yarn Classic](https://classic.yarnpkg.com/en/docs/install#mac-stable). 
